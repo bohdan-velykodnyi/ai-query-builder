@@ -1,0 +1,69 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input ChangePasswordDto {
+  new_password: String!
+  old_password: String!
+}
+
+input CreateUserDto {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type DatabaseCredentials {
+  database: String!
+  host: String!
+  id: ID!
+  password: String!
+  port: String!
+  user_id: ID!
+  username: String!
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  changePassword(passwords: ChangePasswordDto!): String!
+  login(credentials: LoginDto!): TokenResponse!
+  logout(refresh_token: String!): String!
+  logoutFromAll: String!
+  registration(credentials: CreateUserDto!): User!
+  saveDatabase(saveDatabase: SaveDatabase!): DatabaseCredentials!
+  sendMessage(sendMessageDto: SendMessageDto!): String!
+}
+
+type Query {
+  getAllDatabases: [DatabaseCredentials!]!
+  hello: String!
+}
+
+input SaveDatabase {
+  database: String!
+  host: String!
+  password: String!
+  port: String!
+  username: String!
+}
+
+input SendMessageDto {
+  database_id: ID!
+  message: String!
+}
+
+type TokenResponse {
+  access_token: String!
+  refresh_token: String!
+}
+
+type User {
+  databases: [DatabaseCredentials!]
+  email: String!
+  id: ID!
+  name: String!
+}
