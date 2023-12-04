@@ -1,0 +1,10 @@
+.wrap {
+    background: url("../../public/AI-SQL-Query-builder-logotype.png") no-repeat center / cover;
+    padding: 20px;
+    display: grid;
+    justify-items: end;
+    align-content: start;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}

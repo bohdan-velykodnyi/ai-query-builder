@@ -29,10 +29,5 @@ async function bootstrap() {
 }
 bootstrap();
 
-// login
-// logout
 // register
-// add database
-// get all databases
 // send message
-// edit profile

@@ -1,0 +1,22 @@
+.wrap {
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    display: grid;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.wrap form {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    gap: 20px;
+}
+
+.wrap form > * {
+    width: 100%;
+}

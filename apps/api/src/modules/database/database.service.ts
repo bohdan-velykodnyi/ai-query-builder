@@ -3,11 +3,13 @@ import {
   DataSource,
   DataSourceOptions,
   FindManyOptions,
+  FindOptionsWhere,
   Repository,
 } from 'typeorm';
 import { DatabaseCredentials } from './entity/database.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateDatabaseDto } from './dto/database.dto';
+import { GraphQLError } from 'graphql';
 
 const getDefaultOptions = {
   synchronize: false,
@@ -35,6 +37,16 @@ export class DatabaseService {
     createDatabaseDto: CreateDatabaseDto,
   ): Promise<DatabaseCredentials> {
     return this.databaseCredentials.save(createDatabaseDto);
+  }
+
+  public async deleteByCriteria(
+    criteria: FindOptionsWhere<DatabaseCredentials>,
+  ): Promise<void> {
+    try {
+      await this.databaseCredentials.delete(criteria);
+    } catch (error) {
+      throw new GraphQLError('The records was not found');
+    }
   }
 
   public async runQuery<T>(db_id: string, query: string): Promise<T> {

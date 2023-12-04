@@ -1,8 +1,11 @@
 import 'styles/globals.css';
 
-import { Mulish } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
-const mulish = Mulish({ subsets: ['latin'] });
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: '300',
+});
 
 export default function RootLayout({
   children,
@@ -11,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={mulish.className}>{children}</body>
+      <body className={roboto.className}>{children}</body>
     </html>
   );
 }

@@ -1,45 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.loader {
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	display: block;
-	position: relative;
-	margin-right: 20px;
-	background: #FFF;
-	box-shadow: -24px 0 #FFF, 24px 0 #FFF;
-	box-sizing: border-box;
-	animation: shadowPulse 2s linear infinite;
-}
-
-@keyframes shadowPulse {
-	33% {
-		background: #FFF;
-		box-shadow: -24px 0 #cecece, 24px 0 #FFF;
-	}
-	66% {
-		background: #cecece;
-		box-shadow: -24px 0 #FFF, 24px 0 #FFF;
-	}
-	100% {
-		background: #FFF;
-		box-shadow: -24px 0 #FFF, 24px 0 #cecece;
-	}
-}
-
-
-
-
-
-@layer components {
-	.message.bot {
-		@apply text-right text-gray-500 font-bold;
-	}
-
-	.message.user {
-		@apply text-blue-950 font-bold;
-	}
+body {
+	margin: 0;
+	/* background: rgb(54, 67, 91); */
+	height: 100dvh;
+    width: 100dvw;
 }

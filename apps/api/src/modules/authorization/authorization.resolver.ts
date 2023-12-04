@@ -9,10 +9,14 @@ import { GqlAuthGuard } from './guards/auth.guard';
 import { CurrentUser } from './decorator/current-user';
 import { JwtPayload } from './token/types/jwt-payload';
 import { ChangePasswordDto } from './dto/change-password.dto';
+import { UserService } from 'modules/User/user.service';
 
 @Resolver()
 export class AuthorizationResolver {
-  constructor(private readonly authorizationService: AuthorizationService) {}
+  constructor(
+    private readonly authorizationService: AuthorizationService,
+    private readonly userService: UserService,
+  ) {}
 
   @Mutation(() => TokenResponse)
   login(
@@ -55,8 +59,12 @@ export class AuthorizationResolver {
     return this.authorizationService.changePassword(passwords, user_id);
   }
 
-  @Query(() => String)
-  hello(): string {
-    return 'Hello World!';
+  @UseGuards(GqlAuthGuard)
+  @Query(() => User)
+  getCurrentUser(
+    @CurrentUser()
+    { user_id }: JwtPayload,
+  ): Promise<User> {
+    return this.userService.findOne({ where: { id: user_id } });
   }
 }

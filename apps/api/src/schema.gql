@@ -30,6 +30,7 @@ input LoginDto {
 
 type Mutation {
   changePassword(passwords: ChangePasswordDto!): String!
+  deleteDatabase(id: ID!): String!
   login(credentials: LoginDto!): TokenResponse!
   logout(refresh_token: String!): String!
   logoutFromAll: String!
@@ -40,7 +41,7 @@ type Mutation {
 
 type Query {
   getAllDatabases: [DatabaseCredentials!]!
-  hello: String!
+  getCurrentUser: User!
 }
 
 input SaveDatabase {

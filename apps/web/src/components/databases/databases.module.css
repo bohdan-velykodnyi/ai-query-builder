@@ -1,0 +1,46 @@
+.title {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+
+.title p {
+    margin: 0;
+}
+
+.wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    padding: 20px;
+    justify-content: start;
+    gap: 20px;
+}
+
+.card, .addNew {
+    max-width: 300px;
+    height: 100%;
+}
+
+.newDb {
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.addNew {
+    cursor: pointer;
+}
+
+.addNew p {
+    font-size: 24px;
+}
+
+.cardContent {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}

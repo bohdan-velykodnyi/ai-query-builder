@@ -3,6 +3,7 @@ import { User } from './entity/user.entity';
 import { CreateUserDto } from './dto/user.dto';
 import {
   Brackets,
+  FindOneOptions,
   ObjectLiteral,
   Repository,
   SelectQueryBuilder,
@@ -18,6 +19,10 @@ export class UserService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
   ) {}
+
+  public async findOne(options: FindOneOptions<User>) {
+    return this.userRepository.findOne(options);
+  }
 
   public async create(user: CreateUserDto): Promise<User> {
     const newUser = await this.userRepository.save(user);
